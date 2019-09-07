@@ -9,6 +9,8 @@ Before any explanations:
 **THIS PATCH AND THE TOOL ARE PROVIDED AS-IS AND I'M NOT RESPONSIBLE OF ANY DAMAGES!**
 
 - First you have to dump own your gamecard using [nxdumptool by DarkMatterCore](https://github.com/DarkMatterCore/nxdumptool) to get a XCI dump.
+- You need Switch keys to use XCIRepacker, to dump them you can use [Lockpick_RCM by shchmue](https://github.com/shchmue/Lockpick_RCM). You can find some keys documentation on the [LibHac Github](https://github.com/Thealexbarney/LibHac/blob/master/KEYS.md). Switch keys file could be located near the executable or at `C:\Users\USERNAME\.switch` named `prod.keys`.
+
 - Then you have to convert your XCI dump with XCIRepacker into a header patched NSP file (Usage below).
 - Install the content type patch for Atmosphère or Hekate (Explanation below).
 - Install the converted NSP using [Goldleaf by XorTroll](https://github.com/XorTroll/Goldleaf).
