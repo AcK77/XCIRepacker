@@ -2,8 +2,15 @@
 using LibHac.Fs;
 using System;
 using System.IO;
+using System.Linq;
 using System.Reflection;
 using System.Text;
+using LibHac.Common.Keys;
+using LibHac.Fs.Fsa;
+using LibHac.FsSystem;
+using LibHac.Tools.Fs;
+using LibHac.Tools.FsSystem;
+using Path = System.IO.Path;
 
 namespace XCIRepacker
 {
@@ -27,7 +34,7 @@ namespace XCIRepacker
 
             if (args.Length == 1)
             {
-                Keyset keySet = OpenKeyset();
+                KeySet keySet = OpenKeySet();
 
                 if (keySet != null)
                 {
@@ -40,10 +47,10 @@ namespace XCIRepacker
                             if (xciFile.HasPartition(XciPartitionType.Secure))
                             {
                                 XciPartition xciPartition = xciFile.OpenPartition(XciPartitionType.Root);
-
-                                IFile ncaStorage = xciPartition.OpenFile("secure", OpenMode.Read);
-
-                                string outputPath = Path.GetDirectoryName(args[0]) + Path.GetFileNameWithoutExtension(args[0]) + ".nsp";
+                                
+                                IFile ncaStorage = xciPartition.OpenFile(xciPartition.Files.FirstOrDefault(x=>x.Name == "secure"), OpenMode.Read);
+                                
+                                var outputPath = Path.Combine(Path.GetDirectoryName(args[0]), $"{Path.GetFileNameWithoutExtension(args[0])}.nsp");
 
                                 Console.WriteLine($" Input  File Path: {args[0]}");
                                 Console.WriteLine($" Output File Path: {outputPath}" + Environment.NewLine);
@@ -165,11 +172,11 @@ namespace XCIRepacker
             {
                 Console.WriteLine(" USAGE: XCIRepacker.exe \"PathOfFile.xci\"");
             }
-
+            Console.WriteLine("Press any key to exit...");
             Console.ReadKey();
         }
 
-        public static Keyset OpenKeyset()
+        public static KeySet OpenKeySet()
         {
             string keyFileName  = "prod.keys";
             string homeKeyFile  = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.UserProfile), ".switch", keyFileName);
@@ -177,12 +184,12 @@ namespace XCIRepacker
 
             if (File.Exists(localKeyFile))
             {
-                return ExternalKeys.ReadKeyFile(localKeyFile);
+                return ExternalKeyReader.ReadKeyFile(localKeyFile);
             }
 
             if (File.Exists(homeKeyFile))
             {
-                return ExternalKeys.ReadKeyFile(homeKeyFile);
+                return ExternalKeyReader.ReadKeyFile(homeKeyFile);
             }
 
             return null;
