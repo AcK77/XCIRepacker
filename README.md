@@ -22,7 +22,7 @@ Before any explanations:
 
 # Content Type Patches installation
 
- (1.0.0 - 8.1.0 | FAT - ExFat)
+ (1.0.0 - 15.0.0 | FAT - ExFat)
 
 - For Atmosphère: 
 
