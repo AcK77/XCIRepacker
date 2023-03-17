@@ -22,13 +22,13 @@ Before any explanations:
 
 # Content Type Patches installation
 
- (1.0.0 - 15.0.0 | FAT - ExFat)
+ (1.0.0 - 16.0.0 | FAT - ExFat)
 
-- For Atmosphère: 
+- For Atmosphère:
 
 Put the `Patches\atmosphere` content inside `sdmc:/atmosphere` and reboot your switch.
 
-- For Hekate: 
+- For Hekate:
 
 Put the `Patches\bootloader` content inside `sdmc:/bootloader` and reboot your switch.
 
