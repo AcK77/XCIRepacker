@@ -1,6 +1,6 @@
 # XCIRepacker
 
-This tool can convert your own XCI dumps into header patched NSPs who can be installed (with the content type patches for FS system module).
+This tool can convert your own XCI dumps into header patched NSPs which can be installed (with the content type patches for FS system module).
 
 Before any explanations:
 
@@ -11,8 +11,8 @@ Before any explanations:
 - First you have to dump own your gamecard using [nxdumptool by DarkMatterCore](https://github.com/DarkMatterCore/nxdumptool) to get a XCI dump.
 - You need Switch keys to use XCIRepacker, to dump them you can use [Lockpick_RCM by shchmue](https://github.com/shchmue/Lockpick_RCM). You can find some keys documentation on the [LibHac Github](https://github.com/Thealexbarney/LibHac/blob/master/KEYS.md). Switch keys file could be located near the executable or at `C:\Users\USERNAME\.switch` named `prod.keys`.
 
-- Then you have to convert your XCI dump with XCIRepacker into a header patched NSP file (Usage below).
-- Install the content type patch for Atmosphère or Hekate (Explanation below).
+- Then you have to convert your XCI dump with XCIRepacker into a header patched NSP file (usage below).
+- Install the content type patch for Atmosphère or Hekate (explanation below).
 - Install the converted NSP using [Goldleaf by XorTroll](https://github.com/XorTroll/Goldleaf).
 - Enjoy...
 
@@ -22,7 +22,7 @@ Before any explanations:
 
 # Content Type Patches installation
 
- (1.0.0 - 16.0.0 | FAT - ExFat)
+ (1.0.0 - 17.0.1 | FAT - ExFat)
 
 - For Atmosphère:
 
